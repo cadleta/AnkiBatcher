@@ -1,0 +1,16 @@
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\net5.0-windows\AnkiBatcher.exe
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\net5.0-windows\AnkiBatcher.deps.json
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\net5.0-windows\AnkiBatcher.runtimeconfig.json
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\net5.0-windows\AnkiBatcher.runtimeconfig.dev.json
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\net5.0-windows\AnkiBatcher.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\net5.0-windows\ref\AnkiBatcher.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\net5.0-windows\AnkiBatcher.pdb
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net5.0-windows\AnkiBatcher.csprojAssemblyReference.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net5.0-windows\AnkiBatcher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net5.0-windows\AnkiBatcher.AssemblyInfoInputs.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net5.0-windows\AnkiBatcher.AssemblyInfo.cs
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net5.0-windows\AnkiBatcher.csproj.CoreCompileInputs.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net5.0-windows\AnkiBatcher.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net5.0-windows\ref\AnkiBatcher.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net5.0-windows\AnkiBatcher.pdb
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net5.0-windows\AnkiBatcher.genruntimeconfig.cache

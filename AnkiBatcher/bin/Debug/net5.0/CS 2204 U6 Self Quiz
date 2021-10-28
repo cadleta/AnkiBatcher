@@ -1,0 +1,21 @@
+
+If the TFTP client changes its port number on a subsequent connection, but the server does not, what prevents an old duplicate data packet sent by the server from being accepted by the new client?| | 2 |the size of the old dup data is wrong|both client and server UDP are wrong in the old dup packet|the old dup packet has the wrong client UDP port number|the old dup packet has the wrong server UDP port number| |0 0 1 0
+Which of the following message types is NOT a valid TFTP message type?| | 2 |Read request|Write request|Connection request|Error| |0 0 1 0
+Sliding Windows can work even if the receiver assumes that the window size is much less than the sender’s window size value.| | 2 |True|False| | | |1 0
+Which application made the greatest use of early Remote Procedure Call?| | 2 |Network File System|Windows Internet Explorer|File Transfer Protocol|Email| |1 0 0 0
+The Real-time Transport Protocol (RTP) is built on top of UDP because of its packet loss intolerance.| | 2 |True|False| | | |0 1
+In the context of Sun RPC’s at-least-once semantics, duplicate request execution is a possibility.| | 2 |True|False| | | |1 0
+In Stop-and-Wait, deadlock can be avoided by the sender side doing retransmit-on-timeout while the receiver does not do retransmissions.| | 2 |True|False| | | |0 1
+The most common binary data encoding on the Internet – at least below the application layer – is big-endian encoding.| | 2 |True|False| | | |1 0
+TFTP prevents internal old duplicates simply by not allowing its 16-bit block numbers to wrap around; this is effective, but limits the maximum file size to:| | 2 |about 64 MB|about 32 MB|about 20 MB|about 16 MB| |0 1 0 0
+UDP (like TCP) avoids IP fragmentation by relying on the Path MTU Discovery mechanism.| | 2 |True|False| | | |0 1
+To avoid stop-and-wait becoming a performance bottleneck, TFTP has an option to allow small window size sliding windows operation.| | 2 |True|False| | | |0 1
+The UDP 16-bit Internet checksum on the data can be disabled by setting the checksum field to:| | 2 |all 0 bits|-1|0xffff|65535| |1 0 0 0
+UDP ports are considered a shared namespace with TCP ports. Therefore, 2 processes cannot share the same port number even if one process is using UDP and the other is using TCP.| | 2 |True|False| | | |0 1
+In Sliding Windows, if a sender chooses window size larger than the bandwidth x RTT product, then the RTT simply grows until the bandwidth x RTT matches the chosen window size. RTT increase is due to:| | 2 |packet loss|queueing delays|data corruption|all of the above| |0 1 0 0
+UDP packets with spoofed source address are difficult to deliver to the application.| | 2 |True|False| | | |0 1
+Suppose a Sun RPC read() request ends up executing twice. In between successive read() operations, the block of data is updated by another process. So different data is returned. This is failure of idempotence.| | 2 |True|False| | | |0 1
+In Sliding Windows, the sender is allowed to send up to this many packets (starting with the next packet after the last acknowledged packet):| | 2 |half of the window size|window size minus 1|window size|window size plus 1| |0 0 1 0
+What is the functionality that UDP ports provide?| | 2 |Support virtual host communications|Provide secure communications|Allow communication with multiple host processes concurrently|Allow communication with a specific process within the host| |0 0 0 1
+If an 8 KB block of data is sent as a single UDP send operation over Ethernet (without jumbo frames), IP fragmentation is just avoided.| | 2 |True|False| | | |0 1
+In Sliding Windows, once a full timeout has occurred, there are usually no packets remaining in flight and this is referred to as:| | 2 |deadlock|packet starvation|congestion|pipeline drain| |0 0 0 1

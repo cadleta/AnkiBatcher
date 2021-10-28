@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnkiBatcher", "AnkiBatcher\AnkiBatcher.csproj", "{99316ECC-157B-445F-8E98-41B105125FBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyGuideSolver", "..\StudyGuideSolver\StudyGuideSolver\StudyGuideSolver.csproj", "{3D05B7A8-A429-45F7-B7E4-243558D2EB01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnkiBatcher.Core", "AnkiBatcher.Core\AnkiBatcher.Core.csproj", "{1ECC5E27-D641-4B41-BCEC-C2D4E609FA62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99316ECC-157B-445F-8E98-41B105125FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99316ECC-157B-445F-8E98-41B105125FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99316ECC-157B-445F-8E98-41B105125FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99316ECC-157B-445F-8E98-41B105125FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D05B7A8-A429-45F7-B7E4-243558D2EB01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D05B7A8-A429-45F7-B7E4-243558D2EB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D05B7A8-A429-45F7-B7E4-243558D2EB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D05B7A8-A429-45F7-B7E4-243558D2EB01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ECC5E27-D641-4B41-BCEC-C2D4E609FA62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ECC5E27-D641-4B41-BCEC-C2D4E609FA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ECC5E27-D641-4B41-BCEC-C2D4E609FA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ECC5E27-D641-4B41-BCEC-C2D4E609FA62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8A4888D-1229-4524-AF13-2835CA674578}
+	EndGlobalSection
+EndGlobal

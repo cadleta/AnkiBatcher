@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ABuWCwxwoFU95ve6jwPeoEr3Gx7Xe9dGCY4ZfM3gGlL2umsUGO24SIMESaPKALqCWkqyLUjRMt9rwAeB/XyAWQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\chris\\source\\repos\\AnkiBatcher\\AnkiBatcher.Core\\AnkiBatcher.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\chris\\.nuget\\packages\\htmlagilitypack\\1.11.37\\htmlagilitypack.1.11.37.nupkg.sha512"
+  ],
+  "logs": []
+}

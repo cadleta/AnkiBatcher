@@ -1,0 +1,11 @@
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\obj\Debug\net5.0\AnkiBatcher.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\obj\Debug\net5.0\AnkiBatcher.Core.AssemblyInfoInputs.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\obj\Debug\net5.0\AnkiBatcher.Core.AssemblyInfo.cs
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\obj\Debug\net5.0\AnkiBatcher.Core.csproj.CoreCompileInputs.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\bin\Debug\net5.0\AnkiBatcher.Core.deps.json
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\bin\Debug\net5.0\AnkiBatcher.Core.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\bin\Debug\net5.0\ref\AnkiBatcher.Core.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\bin\Debug\net5.0\AnkiBatcher.Core.pdb
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\obj\Debug\net5.0\AnkiBatcher.Core.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\obj\Debug\net5.0\ref\AnkiBatcher.Core.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher.Core\obj\Debug\net5.0\AnkiBatcher.Core.pdb

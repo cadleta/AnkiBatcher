@@ -1,0 +1,4 @@
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net48\AnkiBatcher.csprojAssemblyReference.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net48\AnkiBatcher.AssemblyInfoInputs.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net48\AnkiBatcher.AssemblyInfo.cs
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\net48\AnkiBatcher.csproj.CoreCompileInputs.cache

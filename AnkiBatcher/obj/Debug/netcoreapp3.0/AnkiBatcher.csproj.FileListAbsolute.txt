@@ -1,0 +1,13 @@
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\netcoreapp3.0\AnkiBatcher.exe
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\netcoreapp3.0\AnkiBatcher.deps.json
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\netcoreapp3.0\AnkiBatcher.runtimeconfig.json
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\netcoreapp3.0\AnkiBatcher.runtimeconfig.dev.json
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\netcoreapp3.0\AnkiBatcher.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\bin\Debug\netcoreapp3.0\AnkiBatcher.pdb
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\netcoreapp3.0\AnkiBatcher.csprojAssemblyReference.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\netcoreapp3.0\AnkiBatcher.AssemblyInfoInputs.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\netcoreapp3.0\AnkiBatcher.AssemblyInfo.cs
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\netcoreapp3.0\AnkiBatcher.csproj.CoreCompileInputs.cache
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\netcoreapp3.0\AnkiBatcher.dll
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\netcoreapp3.0\AnkiBatcher.pdb
+C:\Users\chris\source\repos\AnkiBatcher\AnkiBatcher\obj\Debug\netcoreapp3.0\AnkiBatcher.genruntimeconfig.cache
