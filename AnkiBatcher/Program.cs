@@ -229,34 +229,37 @@ namespace AnkiBatcher
                         QuestionArray[QuestionNum - 1].QuestionA = "True";
                         QuestionArray[QuestionNum - 1].QuestionB = "False";
                     }
+                } else if (currentLine.Contains("Select one or more:"))
+                {
+                    QuestionArray[QuestionNum - 1].QuestionType = 2;
                 }
 
                 if (QuestionArray.Count > 1)
                 {
-                    if (currentLine.Contains("a."))
+                    if (currentLine.Contains("a.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
                     {
                         QuestionArray[QuestionNum - 1].QuestionA = lines[i + 1];
                     }
 
-                    if (currentLine.Contains("b."))
+                    if (currentLine.Contains("b.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
                     {
                         QuestionArray[QuestionNum - 1].QuestionB = lines[i + 1];
 
                     }
 
-                    if (currentLine.Contains("c."))
+                    if (currentLine.Contains("c.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
                     {
                         QuestionArray[QuestionNum - 1].QuestionC = lines[i + 1];
 
                     }
 
-                    if (currentLine.Contains("d."))
+                    if (currentLine.Contains("d.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
                     {
                         QuestionArray[QuestionNum - 1].QuestionD = lines[i + 1];
 
                     }
 
-                    if (currentLine.Contains("e."))
+                    if (currentLine.Contains("e.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
                     {
                         QuestionArray[QuestionNum - 1].QuestionE = lines[i + 1];
                     }
@@ -278,6 +281,56 @@ namespace AnkiBatcher
                         int Start = currentLine.IndexOf("\'") + 1;
                         int End = currentLine.Length - currentLine.IndexOf("\'") - 3;
                         QuestionArray[QuestionNum - 1].Answer = currentLine.Substring(Start, End);
+                    }
+                } else if (QuestionArray.Count == 1)
+                {
+                    var currentQuestion = QuestionArray[0];
+
+                    if (currentLine.Contains("a.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
+                    {
+                        currentQuestion.QuestionA = lines[i + 1];
+                    }
+
+                    if (currentLine.Contains("b.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
+                    {
+                        currentQuestion.QuestionB = lines[i + 1];
+
+                    }
+
+                    if (currentLine.Contains("c.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
+                    {
+                        currentQuestion.QuestionC = lines[i + 1];
+
+                    }
+
+                    if (currentLine.Contains("d.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
+                    {
+                        currentQuestion.QuestionD = lines[i + 1];
+
+                    }
+
+                    if (currentLine.Contains("e.") && i + 1 < lines.Length && string.IsNullOrWhiteSpace(lines[i - 1]))
+                    {
+                        currentQuestion.QuestionE = lines[i + 1];
+                    }
+
+                    if (currentLine.Contains("The correct answer is:"))
+                    {
+                        currentQuestion.Answer = currentLine.Substring(currentLine.IndexOf(":") + 2);
+                    }
+
+                    if (currentLine.Contains("The correct answers are:"))
+                    {
+                        //TODO Special Case multiple answers
+                        //Console.WriteLine("Made it to multiple answers");
+                        currentQuestion.Answer = currentLine.Substring(currentLine.IndexOf(":") + 2);
+                    }
+
+                    if (currentLine.Contains("The correct answer is \'"))
+                    {
+                        int Start = currentLine.IndexOf("\'") + 1;
+                        int End = currentLine.Length - currentLine.IndexOf("\'") - 3;
+                        currentQuestion.Answer = currentLine.Substring(Start, End);
                     }
                 }
             }
@@ -431,6 +484,103 @@ namespace AnkiBatcher
                         {
                             sw.Write("0 1");
                         }
+                        sw.WriteLine("");
+                    }
+                    else if (item.QuestionType == 2)
+                    {
+                        sw.Write(item.QuestionText + "| | 1 |" + item.QuestionA + "|" + item.QuestionB + "|" + item.QuestionC + "|" + item.QuestionD + "|" + item.QuestionE + "|");
+                        char ch = ',';
+
+                        int ans = item.Answer.Count(f => (f == ch));
+                        string[] answers = new string[ans + 1];
+
+                        int totalChoices = 4;
+
+                        if (string.IsNullOrWhiteSpace(item.QuestionC))
+                        {
+                            totalChoices = 2;
+                        } else if (string.IsNullOrWhiteSpace(item.QuestionD))
+                        {
+                            totalChoices = 3;
+                        } else if (string.IsNullOrWhiteSpace(item.QuestionE))
+                        {
+                            totalChoices = 4;
+                        } else
+                        {
+                            totalChoices = 5;
+                        }
+
+
+                        bool[] correct = new bool[totalChoices];
+                        foreach(bool choice in correct)
+                        {
+                            choice.Equals(false);
+                            //Console.WriteLine(choice);
+                        }
+
+                        switch (ans)
+                        {
+                            //only one answer
+                            case 0:
+                                answers[0] = item.Answer;
+                                break;
+
+                            //2 answers
+                            case 1:
+                                answers[0] = item.Answer.Substring(0, item.Answer.IndexOf(","));
+                                answers[1] = item.Answer.Substring(item.Answer.IndexOf(",")+2);
+                                Console.WriteLine(answers[0] + " " + answers[1]);
+                                break;
+
+                            //3 answers
+                            case 2:
+                                answers[0] = item.Answer.Substring(0, item.Answer.IndexOf(","));
+                                answers[1] = item.Answer.Substring(item.Answer.IndexOf(",") + 2, item.Answer.LastIndexOf(","));
+                                answers[2] = item.Answer.Substring(item.Answer.LastIndexOf(",") + 2);
+                                break;
+
+                            //4 answers
+                            case 3:
+                                
+                                break;
+
+                            //5 answers
+                            case 4:
+
+                                break;
+                        }
+
+                        foreach (string oneAnswer in answers)
+                        {
+                            if (oneAnswer.Equals(item.QuestionA)){
+                                correct[0] = true;
+                            } else if (oneAnswer.Equals(item.QuestionB))
+                            {
+                                correct[1] = true;
+                            } else if (oneAnswer.Equals(item.QuestionC))
+                            {
+                                correct[2] = true;
+                            } else if (oneAnswer.Equals(item.QuestionD))
+                            {
+                                correct[3] = true;
+                            } else if (oneAnswer.Equals(item.QuestionE))
+                            {
+                                correct[4] = true;
+                            }
+                        }
+
+                        foreach(bool choice in correct)
+                        {
+                            if (choice)
+                            {
+                                sw.Write("1");
+                            } else
+                            {
+                                sw.Write("0");
+                            }
+                            sw.Write(" ");
+                        }
+
                         sw.WriteLine("");
                     }
                 }
