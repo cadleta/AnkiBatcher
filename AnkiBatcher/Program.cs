@@ -46,36 +46,15 @@ namespace AnkiBatcher
                 }
             }
 
-            Console.WriteLine("What Note Type Would You Like?");
-            Console.WriteLine("Enter the number for the corresponding mode:");
-            Console.WriteLine("0 - All Multiple Choice");
-            Console.WriteLine("1 - Multiple Choice & True/False Cloze");
-            Console.WriteLine("2 - Advanced Cloze");
-            Console.WriteLine("3 - Basic");
-            int noteType = int.Parse(Console.ReadLine());
-            Console.WriteLine(noteType);
-            bool noteTest = true;
 
-            switch (noteType)
-            {
-                case 0:
-                    noteTest = false;
-                    break;
-                case 1:
-                    noteTest = false;
-                    break;
-                case 2:
-                    noteTest = false;
-                    break;
-                case 3:
-                    noteTest = false;
-                    break;
-                default:
-                    noteTest = true;
-                    break;
-            }
+            // Ask the user for a valid note type
+            #region GetValidNoteType
 
-            while (noteTest)
+            int noteType = -1;
+            bool noteTypeValid = false;
+
+            // Repeat asking what note type until an accepted answer is submitted
+            while (!noteTypeValid)
             {
                 Console.WriteLine("What Note Type Would You Like?");
                 Console.WriteLine("Enter the number for the corresponding mode:");
@@ -83,95 +62,83 @@ namespace AnkiBatcher
                 Console.WriteLine("1 - Multiple Choice & True/False Cloze");
                 Console.WriteLine("2 - Advanced Cloze");
                 Console.WriteLine("3 - Basic");
-                noteType = int.Parse(Console.ReadLine());
-                Console.WriteLine(noteType);
+                Console.WriteLine("4 - Dynamic \n");
+                
+                bool parsed = int.TryParse(Console.ReadLine(), out noteType);
 
-                switch (noteType)
+                // If entered text is an accepted number:
+                if (parsed)
                 {
-                    case 0:
-                        noteTest = false;
-                        break;
-                    case 1:
-                        noteTest = false;
-                        break;
-                    case 2:
-                        noteTest = false;
-                        break;
-                    case 3:
-                        noteTest = false;
-                        break;
-                    default:
-                        noteTest = true;
-                        break;
-                }
-            }
 
-            Console.WriteLine("What Mode Would You Like?");
-            Console.WriteLine("Enter the number for the corresponding mode:");
-            Console.WriteLine("");
-            Console.WriteLine("0 - Self Quiz Decoder");
-            Console.WriteLine("1 - Definition Researcher");
-            Console.WriteLine("2 - Book Quotes");
-            Console.WriteLine("3 - Based On Note Type");
-            Console.WriteLine("");
-            int mode = int.Parse(Console.ReadLine());
-            Console.WriteLine(mode);
-            bool modeTest = true;
-            
-            switch (mode)
-            {
-                case 0:
-                    modeTest = false;
-                    SelfQuizParse(path, quiz, noteType);
-                    break;
-                case 1:
-                    modeTest = false;
-                    break;
-                case 2:
-                    modeTest = false;
-                    break;
-                case 3:
-                    modeTest = false;
-                    break;
-                default:
-                    modeTest = true;
-                    break;
+                    // If accepted number is in option range:
+                    if (noteType <= 4 && noteType >= 0)
+                    {
+                        // Exit loop and print noteType
+                        noteTypeValid = true;
+                        Console.WriteLine(noteType);
+                    }
+                    else
+                    {
+                        // accepted number is not an option
+                        noteTypeValid = false;
+                        Console.WriteLine("\nError: Accepted number is not an option\n");
+                    }
+                } 
+                else
+                {
+                    // Number was not parsed
+                    noteTypeValid = false;
+                    Console.WriteLine("\nError: Unable to parse int\n");
+                } 
             }
+            #endregion
 
-            while (modeTest)
+            // Ask the user for a valid mode type
+            #region GetValidModeType
+
+            int mode = -1;
+            bool modeValid = false;
+
+            // Repeat asking what note type until an accepted answer is submitted
+            while (!modeValid)
             {
-                Console.WriteLine("Error: Please enter one of the options bellow");
-                Console.WriteLine("");
                 Console.WriteLine("What Mode Would You Like?");
-                Console.WriteLine("Enter the number for the corresponding mode:");
-                Console.WriteLine("");
+                Console.WriteLine("Enter the number for the corresponding mode: \n");
                 Console.WriteLine("0 - Self Quiz Decoder");
                 Console.WriteLine("1 - Definition Researcher");
                 Console.WriteLine("2 - Book Quotes");
-                Console.WriteLine("3 - Based On Note Type");
-                Console.WriteLine("");
-                mode = int.Parse(Console.ReadLine());
+                Console.WriteLine("3 - Based On Note Type \n");
 
-                switch (mode)
+
+                bool parsed = int.TryParse(Console.ReadLine(), out mode);
+
+                // If entered text is an accepted number:
+                if (parsed)
                 {
-                    case 0:
-                        modeTest = false;
-                        SelfQuizParse(path, quiz, noteType);
-                        break;
-                    case 1:
-                        modeTest = false;
-                        break;
-                    case 2:
-                        modeTest = false;
-                        break;
-                    case 3:
-                        modeTest = false;
-                        break;
-                    default:
-                        modeTest = true;
-                        break;
+
+                    // If accepted number is in option range:
+                    if (mode <= 4 && mode >= 0)
+                    {
+                        // Exit loop and print noteType
+                        modeValid = true;
+                        Console.WriteLine(mode);
+                    }
+                    else
+                    {
+                        // accepted number is not an option
+                        modeValid = false;
+                        Console.WriteLine("\nError: Accepted number is not an option\n");
+                    }
+                }
+                else
+                {
+                    // Number was not parsed
+                    modeValid = false;
+                    Console.WriteLine("\nError: Unable to parse int\n");
                 }
             }
+
+            #endregion
 
         }
 
