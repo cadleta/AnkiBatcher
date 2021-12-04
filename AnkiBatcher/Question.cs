@@ -16,27 +16,13 @@
         // 1 = Single Choice
         // 2 = Mulitple Choice
 
-        public Question(string questionText, int questionType, string answer)
-        {
-            QuestionText = questionText;
-            QuestionType = questionType;
-            Answer = answer;
-        }
-        public Question(string questionText, int questionType, string questionA, string questionB, string questionC, string questionD, string answer)
-        {
-            QuestionText = questionText;
-            QuestionType = questionType;
-            QuestionA = questionA;
-            QuestionB = questionB;
-            QuestionC = questionC;
-            QuestionD = questionD;
-            Answer = answer;
-        }
+    }
 
-        public Question(string questionText, int questionType, string questionA, string questionB, string questionC, string questionD, string questionE, string answer)
+    public class MultipleChoiceQuestion : Question
+    {
+        public MultipleChoiceQuestion(string questionText, string questionA, string questionB, string questionC, string questionD, string questionE, string answer)
         {
             QuestionText = questionText;
-            QuestionType = questionType;
             QuestionA = questionA;
             QuestionB = questionB;
             QuestionC = questionC;
@@ -44,6 +30,37 @@
             QuestionE = questionE;
             Answer = answer;
         }
+
     }
+
+    public class TrueFalseQuestion : Question
+    {
+        public TrueFalseQuestion(string questionText, bool answer)
+        {
+            QuestionText = questionText;
+            QuestionA = "True";
+            QuestionB = "False";
+
+            if (answer)
+            {
+                Answer = "1 0";
+            } else
+            {
+                Answer = "0 1";
+            }
+        }
+
+    }
+
+    public class SimpleQuestion : Question
+    {
+        public SimpleQuestion(string questionText, string answer)
+        {
+            QuestionText = questionText;
+            Answer = answer;
+        }
+
+    }
+
 
 }
