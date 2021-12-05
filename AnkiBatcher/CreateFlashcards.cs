@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,10 @@ namespace AnkiBatcher
     class CreateFlashcards
     {
 
-        public static void AllMultipleChoice(string path, string quiz, List<Question> questions)
+        public static void AllMultipleChoice(List<Question> questions)
         {
 
-            using (StreamWriter sw = File.AppendText(path))
+            using (StreamWriter sw = File.AppendText(Program.outputFile))
             {
                 foreach (Question item in questions)
                 {
@@ -199,11 +200,14 @@ namespace AnkiBatcher
 
             //Open Text File
 
-            OpenWithDefaultProgram(path);
+            OpenWithDefaultProgram(Program.outputFile);
         }
 
-        public static void MCTFCloze(string path, string quiz, List<Question> questions)
+        public static void MCTFCloze(List<Question> questions)
         {
+            string path = Program.outputFile;
+            string quiz = Program.inputFile;
+
             //Creating Second File:
             string userFileName = path.Substring(0, path.LastIndexOf(@"."));
 
@@ -283,14 +287,14 @@ namespace AnkiBatcher
             OpenWithDefaultProgram(path);
             OpenWithDefaultProgram(path2);
         }
-        public static void AdvancedCloze(string path, string quiz, List<Question> questions)
+        public static void AdvancedCloze(List<Question> questions)
         {
 
         }
 
-        public static void Basic(string path, string quiz, List<Question> questions)
+        public static void Basic(List<Question> questions)
         {
-            using (StreamWriter sw = File.AppendText(path))
+            using (StreamWriter sw = File.AppendText(Program.outputFile))
             {
                 foreach (Question item in questions)
                 {
@@ -300,10 +304,10 @@ namespace AnkiBatcher
 
             //Open Text File
 
-            OpenWithDefaultProgram(path);
+            OpenWithDefaultProgram(Program.outputFile);
         }
 
-        public static void Dynamic(string path, string quiz, List<Question> questions)
+        public static void Dynamic(List<Question> questions)
         {
 
         }

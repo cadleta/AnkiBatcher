@@ -25,9 +25,10 @@ namespace AnkiBatcher
             Dynamic,
         }
 
-        // TODO: make path and quiz file paths public
         public static parseStyleEnum parseStyle = parseStyleEnum.Dynamic;
         public static flashcardStyleEnum flashcardStyle = flashcardStyleEnum.Dynamic;
+        public static string outputFile = "";
+        public static string inputFile = "";
 
         static void Main(string[] args)
         {
@@ -36,32 +37,32 @@ namespace AnkiBatcher
             string tempQuiz;
             Console.WriteLine("Enter Text File Path For Input: ");
             tempQuiz = @"" + Console.ReadLine();
-            string quiz = tempQuiz.Trim(new Char[] { '"' });
-            while (!File.Exists(quiz))
+            inputFile = tempQuiz.Trim(new Char[] { '"' });
+            while (!File.Exists(inputFile))
             {
                 Console.WriteLine("Failed, Not a real file.");
                 Console.WriteLine("Please Try Again.");
                 Console.WriteLine("Enter Text File Path For Input:");
                 tempQuiz = @"" + Console.ReadLine();
-                quiz = tempQuiz.Trim(new Char[] { '"' });
+                inputFile = tempQuiz.Trim(new Char[] { '"' });
             }
-            //FileInfo file = new FileInfo(quiz);
-            Console.WriteLine(quiz);
+            //FileInfo file = new FileInfo(inputFile);
+            Console.WriteLine(inputFile);
 
             string tempPath;
             Console.WriteLine("Enter Output File Name: ");
             tempPath = Console.ReadLine();
 
-            string userFileName = quiz.Substring(0,quiz.LastIndexOf(@"\")+1);
+            string userFileName = inputFile.Substring(0,inputFile.LastIndexOf(@"\")+1);
 
-            string path = userFileName + tempPath + ".txt";
-            //FileInfo file = new FileInfo(quiz);
-            Console.WriteLine(path);
+            outputFile = userFileName + tempPath + ".txt";
+            //FileInfo file = new FileInfo(inputFile);
+            Console.WriteLine(outputFile);
 
-            if (!File.Exists(path))
+            if (!File.Exists(outputFile))
             {
                 // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
+                using (StreamWriter sw = File.CreateText(outputFile))
                 {
                     sw.WriteLine("");
                 }
@@ -96,9 +97,35 @@ namespace AnkiBatcher
                     {
                         // Exit loop and print noteType
                         noteTypeValid = true;
-                        Console.WriteLine(noteType);
 
-                        // TODO: assign flashcardStyle a value here
+                        // Assign flashcardStyle a value here
+                        switch (noteType)
+                        {
+                            case 0:
+                                flashcardStyle = flashcardStyleEnum.AllMultipleChoice;
+                                Console.WriteLine(noteType + ": All Multiple Choice");
+                                break;
+                            case 1:
+                                flashcardStyle = flashcardStyleEnum.MCTFCloze;
+                                Console.WriteLine(noteType + ": Multiple Choice & True/False Cloze");
+                                break;
+                            case 2:
+                                flashcardStyle = flashcardStyleEnum.AdvancedCloze;
+                                Console.WriteLine(noteType + ": Advanced Cloze");
+                                break;
+                            case 3:
+                                flashcardStyle = flashcardStyleEnum.Basic;
+                                Console.WriteLine(noteType + ": Basic");
+                                break;
+                            case 4:
+                                flashcardStyle = flashcardStyleEnum.Dynamic;
+                                Console.WriteLine(noteType + ": Dynamic");
+                                break;
+                            default:
+                                Console.WriteLine("Error: noteType is not acceptable");
+                                break;
+                        }
+
                     }
                     else
                     {
@@ -186,9 +213,10 @@ namespace AnkiBatcher
 
             switch (parseStyle){
                 case parseStyleEnum.SelfQuiz:
-                    TextParsers.SelfQuizParse(path,quiz);
+                    TextParsers.SelfQuizParse();
                     break;
                 case parseStyleEnum.Define:
+                    TextParsers.DefineParse();
                     break;
                 case parseStyleEnum.Dynamic:
                     break;

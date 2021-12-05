@@ -8,24 +8,24 @@ namespace AnkiBatcher
 {
     class TextParsers
     {
-        public static void CallFlashcardCreator(string path, string quiz, List<Question> noDupes)
+        private static void CallFlashcardCreator(List<Question> noDupes)
         {
             switch (Program.flashcardStyle)
             {
                 case Program.flashcardStyleEnum.AllMultipleChoice:
-                    CreateFlashcards.AllMultipleChoice(path, quiz, noDupes);
+                    CreateFlashcards.AllMultipleChoice(noDupes);
                     break;
                 case Program.flashcardStyleEnum.MCTFCloze:
-                    CreateFlashcards.MCTFCloze(path, quiz, noDupes);
+                    CreateFlashcards.MCTFCloze(noDupes);
                     break;
                 case Program.flashcardStyleEnum.AdvancedCloze:
-                    CreateFlashcards.AdvancedCloze(path, quiz, noDupes);
+                    CreateFlashcards.AdvancedCloze(noDupes);
                     break;
                 case Program.flashcardStyleEnum.Basic:
-                    CreateFlashcards.Basic(path, quiz, noDupes);
+                    CreateFlashcards.Basic(noDupes);
                     break;
                 case Program.flashcardStyleEnum.Dynamic:
-                    CreateFlashcards.Dynamic(path, quiz, noDupes);
+                    CreateFlashcards.Dynamic(noDupes);
                     break;
                 default:
                     Console.WriteLine("Error: flashcardStyle not accepted.");
@@ -33,11 +33,13 @@ namespace AnkiBatcher
             }
         }
 
-        public static void SelfQuizParse(string path, string quiz)
+        public static void SelfQuizParse()
         {
             //Parse File for questions
 
-            string[] lines = System.IO.File.ReadAllLines(quiz);
+
+
+            string[] lines = System.IO.File.ReadAllLines(Program.inputFile);
 
             int questionsFound = 0;
 
@@ -200,13 +202,13 @@ namespace AnkiBatcher
 
             var noDupes = QuestionArray.GroupBy(x => x.QuestionText).Select(x => x.First()).ToList();
 
-            CallFlashcardCreator(path, quiz, noDupes);
+            CallFlashcardCreator(noDupes);
         }
 
-        public static void DefineParse(string path, string quiz)
+        public static void DefineParse()
         {
 
-            string[] lines = System.IO.File.ReadAllLines(quiz);
+            string[] lines = System.IO.File.ReadAllLines(Program.inputFile);
 
             int questionsFound = 0;
 
