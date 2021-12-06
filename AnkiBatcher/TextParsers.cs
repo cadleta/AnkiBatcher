@@ -86,7 +86,7 @@ namespace AnkiBatcher
                     }
                     else
                     {
-                        QuestionArray[QuestionNum - 1].QuestionType = 0;
+                        QuestionArray[QuestionNum - 1].QuestionType = Question.QuestionTypeEnum.TrueFalseChoice;
                         QuestionArray[QuestionNum - 1].QuestionA = "True";
                         QuestionArray[QuestionNum - 1].QuestionB = "False";
                     }
@@ -251,6 +251,17 @@ namespace AnkiBatcher
 
             //CallFlashcardCreator(path, quiz, noDupes);
 
+        }
+
+        public static void QuizletParse()
+        {
+            // Take Quizlet input, turn it into questions
+
+
+            string[] lines = System.IO.File.ReadAllLines(Program.inputFile);
+
+
+            //CallFlashcardCreator();
         }
 
     }

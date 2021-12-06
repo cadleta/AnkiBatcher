@@ -309,7 +309,7 @@ namespace AnkiBatcher
 
         public static void Dynamic(List<Question> questions)
         {
-
+            
         }
 
         public static void OpenWithDefaultProgram(string path)

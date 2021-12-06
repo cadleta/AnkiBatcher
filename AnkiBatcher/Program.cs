@@ -219,6 +219,7 @@ namespace AnkiBatcher
                     TextParsers.DefineParse();
                     break;
                 case parseStyleEnum.Dynamic:
+                    TextParsers.QuizletParse();
                     break;
                 default:
                     Console.WriteLine("Error: parseStyle is not acceptable");
