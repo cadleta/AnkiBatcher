@@ -72,7 +72,7 @@ namespace AnkiBatcher
                 if (currentLine.Contains("Question text"))
                 {
                     // TODO: Updated all Lists of Questions to the appropriate question type
-                    Question newQuestion = new Question(lines[i + 1], 0, "");
+                    Question newQuestion = new Question(lines[i + 1], 0, "", "", "", "", "", "");
 
                     QuestionArray.Add(newQuestion);
                     QuestionNum++;
@@ -82,7 +82,7 @@ namespace AnkiBatcher
                 {
                     if (lines[i + 2].Contains("a."))
                     {
-                        QuestionArray[QuestionNum - 1].QuestionType = 1;
+                        QuestionArray[QuestionNum - 1].QuestionType = Question.QuestionTypeEnum.MultipleChoice;
                     }
                     else
                     {
@@ -93,7 +93,7 @@ namespace AnkiBatcher
                 }
                 else if (currentLine.Contains("Select one or more:"))
                 {
-                    QuestionArray[QuestionNum - 1].QuestionType = 2;
+                    QuestionArray[QuestionNum - 1].QuestionType = Question.QuestionTypeEnum.MultipleChoice;
                 }
 
                 if (QuestionArray.Count > 1)
@@ -237,7 +237,7 @@ namespace AnkiBatcher
 
                 if (lines[i].Contains("Question text"))
                 {
-                    var newQuestion = new Question(lines[i + 1], 0, "");
+                    var newQuestion = new Question(lines[i + 1], 0, "", "", "", "","", "");
                     newQuestion.Answer = solver.EnumerateGoogleAnswers(newQuestion.QuestionText)
                         .Select(a => a.Description)
                         .FirstOrDefault()

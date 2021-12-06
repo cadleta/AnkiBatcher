@@ -18,7 +18,7 @@ namespace AnkiBatcher
             {
                 foreach (Question item in questions)
                 {
-                    if (item.QuestionType == 1)
+                    if (item.QuestionType.Equals(Question.QuestionTypeEnum.MultipleChoice))
                     {
                         sw.Write(item.QuestionText + "| | 2 |" + item.QuestionA + "|" + item.QuestionB + "|" + item.QuestionC + "|" + item.QuestionD + "|" + item.QuestionE + "|");
                         if (item.Answer.Equals(item.QuestionA))
@@ -76,7 +76,7 @@ namespace AnkiBatcher
                         sw.WriteLine("");
 
                     }
-                    else if (item.QuestionType == 0)
+                    else if (item.QuestionType.Equals(Question.QuestionTypeEnum.TrueFalseChoice))
                     {
                         sw.Write(item.QuestionText + "| | 2 |" + item.QuestionA + "|" + item.QuestionB + "| | | |");
                         if (item.Answer.Equals(item.QuestionA))
@@ -89,7 +89,7 @@ namespace AnkiBatcher
                         }
                         sw.WriteLine("");
                     }
-                    else if (item.QuestionType == 2)
+                    else if (item.QuestionType.Equals(Question.QuestionTypeEnum.MultipleChoice))
                     {
                         sw.Write(item.QuestionText + "| | 1 |" + item.QuestionA + "|" + item.QuestionB + "|" + item.QuestionC + "|" + item.QuestionD + "|" + item.QuestionE + "|");
                         char ch = ',';
@@ -226,7 +226,7 @@ namespace AnkiBatcher
             {
                 foreach (Question item in questions)
                 {
-                    if (item.QuestionType == 1)
+                    if (item.QuestionType.Equals(Question.QuestionTypeEnum.MultipleChoice))
                     {
                         sw.Write(item.QuestionText + "| | 2 |" + item.QuestionA + "|" + item.QuestionB + "|" + item.QuestionC + "|" + item.QuestionD + "| |");
                         if (item.Answer.Equals(item.QuestionA))
