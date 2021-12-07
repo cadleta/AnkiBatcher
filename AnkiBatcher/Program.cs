@@ -13,7 +13,7 @@ namespace AnkiBatcher
         {
             SelfQuiz,
             Define,
-            Dynamic,
+            Quizlet,
         }
 
         public enum flashcardStyleEnum
@@ -25,7 +25,7 @@ namespace AnkiBatcher
             Dynamic,
         }
 
-        public static parseStyleEnum parseStyle = parseStyleEnum.Dynamic;
+        public static parseStyleEnum parseStyle = parseStyleEnum.SelfQuiz;
         public static flashcardStyleEnum flashcardStyle = flashcardStyleEnum.Dynamic;
         public static string outputFile = "";
         public static string inputFile = "";
@@ -156,7 +156,7 @@ namespace AnkiBatcher
                 Console.WriteLine("Enter the number for the corresponding mode: \n");
                 Console.WriteLine("0 - Self Quiz Decoder");
                 Console.WriteLine("1 - Definition Researcher");
-                Console.WriteLine("2 - Dynamic \n");
+                Console.WriteLine("2 - Quizlet \n");
 
 
                 bool parsed = int.TryParse(Console.ReadLine(), out parseMethod);
@@ -182,8 +182,8 @@ namespace AnkiBatcher
                                 Console.WriteLine(parseMethod + ": Define Parser");
                                 break;
                             case 2:
-                                parseStyle = parseStyleEnum.Dynamic;
-                                Console.WriteLine(parseMethod + ": Dynamic Parser");
+                                parseStyle = parseStyleEnum.Quizlet;
+                                Console.WriteLine(parseMethod + ": Quizlet Parser");
                                 break;
                             default:
                                 Console.WriteLine("Error: parseMethod is not acceptable");
@@ -218,7 +218,7 @@ namespace AnkiBatcher
                 case parseStyleEnum.Define:
                     TextParsers.DefineParse();
                     break;
-                case parseStyleEnum.Dynamic:
+                case parseStyleEnum.Quizlet:
                     TextParsers.QuizletParse();
                     break;
                 default:

@@ -257,11 +257,71 @@ namespace AnkiBatcher
         {
             // Take Quizlet input, turn it into questions
 
+            // | is the key to the answer, the next line has to be the new question
+
 
             string[] lines = System.IO.File.ReadAllLines(Program.inputFile);
 
+            int questionsFound = 0;
 
-            //CallFlashcardCreator();
+            List<int> questionIndex = new List<int>();
+
+            for (int i = 1; i < lines.Length; i++)
+            {
+
+                if (lines[i].Contains("|"))
+                {
+                    //System.Console.WriteLine("found question at index: " + i);
+                    questionIndex.Add(i);
+                    questionsFound++;
+                }
+            }
+
+            Console.WriteLine("Questions Found: " + questionsFound);
+
+
+            int QuestionNum = 0;
+
+            var QuestionArray = new List<Question>();
+
+
+            // Loop through the indexs of all the questions
+            for (int index = 0; index < questionIndex.Count; index++)
+            {
+
+                int startIndex = 0;
+                int endIndex = 0;
+
+                if(index != 0) 
+                { 
+                    startIndex = (questionIndex[index - 1] + 1);
+                    endIndex = questionIndex[index];
+                } 
+                else
+                {
+                    startIndex = 0;
+                    endIndex = questionIndex[index];
+                }
+
+                Console.WriteLine("Question between: " + startIndex + " and: " + endIndex);
+
+                // Looping through individual question
+                for (int individualQuestionIndex = startIndex; individualQuestionIndex < endIndex; individualQuestionIndex++)
+                {
+
+                    // Answer = | 
+                    if (lines[individualQuestionIndex].Contains("|"))
+                    {
+
+                    }
+
+                }
+
+            }
+
+            var noDupes = QuestionArray.GroupBy(x => x.QuestionText).Select(x => x.First()).ToList();
+
+            CallFlashcardCreator(noDupes);
         }
 
     }
