@@ -5,6 +5,7 @@
         public string QuestionText { get; set; }
         public enum QuestionTypeEnum
         {
+            SingleChoice,
             MultipleChoice,
             TrueFalseChoice,
             TrueFalseCloze,

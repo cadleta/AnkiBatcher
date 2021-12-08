@@ -18,7 +18,7 @@ namespace AnkiBatcher
             {
                 foreach (Question item in questions)
                 {
-                    if (item.QuestionType.Equals(Question.QuestionTypeEnum.MultipleChoice))
+                    if (item.QuestionType.Equals(Question.QuestionTypeEnum.SingleChoice))
                     {
                         sw.Write(item.QuestionText + "| | 2 |" + item.QuestionA + "|" + item.QuestionB + "|" + item.QuestionC + "|" + item.QuestionD + "|" + item.QuestionE + "|");
                         if (item.Answer.Equals(item.QuestionA))
@@ -309,7 +309,197 @@ namespace AnkiBatcher
 
         public static void Dynamic(List<Question> questions)
         {
-            
+
+            using (StreamWriter sw = File.AppendText(Program.outputFile))
+            {
+                foreach (Question item in questions)
+                {
+                    if (item.QuestionType.Equals(Question.QuestionTypeEnum.MultipleChoice))
+                    {
+                        sw.Write(item.QuestionText + "| | 2 |" + item.QuestionA + "|" + item.QuestionB + "|" + item.QuestionC + "|" + item.QuestionD + "|" + item.QuestionE + "|");
+                        if (item.Answer.Equals(item.QuestionA))
+                        {
+                            if (item.QuestionE == null)
+                            {
+                                sw.Write("1 0 0 0");
+                            }
+                            else
+                            {
+                                sw.Write("1 0 0 0 0");
+                            }
+                        }
+                        else if (item.Answer.Equals(item.QuestionB))
+                        {
+                            if (item.QuestionE == null)
+                            {
+                                sw.Write("0 1 0 0");
+                            }
+                            else
+                            {
+                                sw.Write("0 1 0 0 0");
+                            }
+                        }
+                        else if (item.Answer.Equals(item.QuestionC))
+                        {
+                            if (item.QuestionE == null)
+                            {
+                                sw.Write("0 0 1 0");
+                            }
+                            else
+                            {
+                                sw.Write("0 0 1 0 0");
+                            }
+                        }
+                        else if (item.Answer.Equals(item.QuestionD))
+                        {
+                            if (item.QuestionE == null)
+                            {
+                                sw.Write("0 0 0 1");
+                            }
+                            else
+                            {
+                                sw.Write("0 0 0 1 0");
+                            }
+                        }
+                        else if (item.Answer.Equals(item.QuestionE))
+                        {
+                            sw.Write("0 0 0 0 1");
+                        }
+                        else
+                        {
+                            sw.Write("0 0 0 0");
+                        }
+                        sw.WriteLine("");
+
+                    }
+                    else if (item.QuestionType.Equals(Question.QuestionTypeEnum.TrueFalseChoice))
+                    {
+                        sw.Write(item.QuestionText + "| | 2 |" + item.QuestionA + "|" + item.QuestionB + "| | | |");
+                        if (item.Answer.Equals(item.QuestionA))
+                        {
+                            sw.Write("1 0");
+                        }
+                        else if (item.Answer.Equals(item.QuestionB))
+                        {
+                            sw.Write("0 1");
+                        }
+                        sw.WriteLine("");
+                    }
+                    else if (item.QuestionType.Equals(Question.QuestionTypeEnum.MultipleChoice))
+                    {
+                        sw.Write(item.QuestionText + "| | 1 |" + item.QuestionA + "|" + item.QuestionB + "|" + item.QuestionC + "|" + item.QuestionD + "|" + item.QuestionE + "|");
+                        char ch = ',';
+
+                        int ans = item.Answer.Count(f => (f == ch));
+                        string[] answers = new string[ans + 1];
+
+                        int totalChoices = 4;
+
+                        if (string.IsNullOrWhiteSpace(item.QuestionC))
+                        {
+                            totalChoices = 2;
+                        }
+                        else if (string.IsNullOrWhiteSpace(item.QuestionD))
+                        {
+                            totalChoices = 3;
+                        }
+                        else if (string.IsNullOrWhiteSpace(item.QuestionE))
+                        {
+                            totalChoices = 4;
+                        }
+                        else
+                        {
+                            totalChoices = 5;
+                        }
+
+
+                        bool[] correct = new bool[totalChoices];
+                        foreach (bool choice in correct)
+                        {
+                            choice.Equals(false);
+                            //Console.WriteLine(choice);
+                        }
+
+                        switch (ans)
+                        {
+                            //only one answer
+                            case 0:
+                                answers[0] = item.Answer;
+                                break;
+
+                            //2 answers
+                            case 1:
+                                answers[0] = item.Answer.Substring(0, item.Answer.IndexOf(","));
+                                answers[1] = item.Answer.Substring(item.Answer.IndexOf(",") + 2);
+                                Console.WriteLine(answers[0] + " " + answers[1]);
+                                break;
+
+                            //3 answers
+                            case 2:
+                                answers[0] = item.Answer.Substring(0, item.Answer.IndexOf(","));
+                                answers[1] = item.Answer.Substring(item.Answer.IndexOf(",") + 2, item.Answer.LastIndexOf(","));
+                                answers[2] = item.Answer.Substring(item.Answer.LastIndexOf(",") + 2);
+                                break;
+
+                            //4 answers
+                            case 3:
+
+                                break;
+
+                            //5 answers
+                            case 4:
+
+                                break;
+                        }
+
+                        foreach (string oneAnswer in answers)
+                        {
+                            if (oneAnswer.Equals(item.QuestionA))
+                            {
+                                correct[0] = true;
+                            }
+                            else if (oneAnswer.Equals(item.QuestionB))
+                            {
+                                correct[1] = true;
+                            }
+                            else if (oneAnswer.Equals(item.QuestionC))
+                            {
+                                correct[2] = true;
+                            }
+                            else if (oneAnswer.Equals(item.QuestionD))
+                            {
+                                correct[3] = true;
+                            }
+                            else if (oneAnswer.Equals(item.QuestionE))
+                            {
+                                correct[4] = true;
+                            }
+                        }
+
+                        foreach (bool choice in correct)
+                        {
+                            if (choice)
+                            {
+                                sw.Write("1");
+                            }
+                            else
+                            {
+                                sw.Write("0");
+                            }
+                            sw.Write(" ");
+                        }
+
+                        sw.WriteLine("");
+                    }
+                }
+            }
+
+            //Open Text File
+
+            OpenWithDefaultProgram(Program.outputFile);
+
+
+
         }
 
         public static void OpenWithDefaultProgram(string path)

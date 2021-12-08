@@ -82,7 +82,7 @@ namespace AnkiBatcher
                 {
                     if (lines[i + 2].Contains("a."))
                     {
-                        QuestionArray[QuestionNum - 1].QuestionType = Question.QuestionTypeEnum.MultipleChoice;
+                        QuestionArray[QuestionNum - 1].QuestionType = Question.QuestionTypeEnum.SingleChoice;
                     }
                     else
                     {
