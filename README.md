@@ -1,6 +1,6 @@
 # AnkiBatcher
 
-AnkiBatcher is a command-line utility that processes quiz text files and converts them into formats suitable for importing into [Anki](https://apps.ankiweb.net/), a popular flashcard application. It supports various question types such as multiple-choice, true/false, and cloze deletions.
+AnkiBatcher is a command-line utility that processes quiz text files and converts them into formats suitable for importing into [Anki](https://apps.ankiweb.net/), a popular flashcard application. It supports various question types such as multiple-choice, true/false, and cloze deletions. Mentioned in this video: [Automatically Creating Anki Cards From...](https://youtu.be/_TE0wwT5-6M)
 
 ## Features
 
